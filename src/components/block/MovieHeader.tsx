@@ -1,12 +1,12 @@
 import { Badge, Title } from "@components/base";
 
 type MovieHeaderProps = {
-  title: string;
-  type: string;
-  rating: number;
-  rated: string;
-  year: number;
-  runtime: string;
+  title?: string;
+  type?: string;
+  rating?: number;
+  rated?: string;
+  year?: number;
+  runtime?: string;
 };
 
 const MovieHeader: React.FC<MovieHeaderProps> = ({

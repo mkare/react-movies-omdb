@@ -2,7 +2,7 @@ import type { Rating } from "types";
 import { Title } from "@components/base";
 
 type MovieRatingProps = {
-  rating: Array<Rating>;
+  rating?: Array<Rating>;
 };
 
 const MovieRating: React.FC<MovieRatingProps> = ({ rating }) => {
@@ -11,12 +11,13 @@ const MovieRating: React.FC<MovieRatingProps> = ({ rating }) => {
       <Title level={6} className="mr-2">
         Ratings:
       </Title>
-      {rating.map((rate) => (
-        <div key={rate.Source} className="flex mr-2">
-          <span className="mr-2">{rate.Source}</span>
-          <span className="font-bold">{rate.Value}</span>
-        </div>
-      ))}
+      {rating &&
+        rating.map((rate) => (
+          <div key={rate.Source} className="flex mr-2">
+            <span className="mr-2">{rate.Source}</span>
+            <span className="font-bold">{rate.Value}</span>
+          </div>
+        ))}
     </div>
   );
 };
