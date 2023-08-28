@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 type CardProps = {
   className?: string;
@@ -39,7 +39,7 @@ const Card: React.FC<CardProps> = ({
             <img
               src={imageSrc}
               alt={imageAlt}
-              className={classnames("object-fill inset-0", {
+              className={classnames("object-cover w-full h-auto", {
                 "rounded-t-lg": !imageOverlay,
               })}
             />
