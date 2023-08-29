@@ -11,10 +11,19 @@ export interface MoviesState {
   totalResults: number;
 }
 
-const initialState: MoviesState = {
+export interface FilterState {
+  year?: string;
+  type?: string;
+}
+
+export type MoviesSearchState = MoviesState & FilterState;
+
+const initialState: MoviesSearchState = {
   movies: [],
   currentMovie: null,
   searchTerm: "Pokemon",
+  year: undefined,
+  type: undefined,
   status: "idle",
   error: null,
   totalResults: 0,
@@ -22,8 +31,18 @@ const initialState: MoviesState = {
 
 export const fetchMoviesAsync = createAsyncThunk(
   "movies/fetchMovies",
-  async ({ searchTerm, page }: { searchTerm: string; page: number }) => {
-    const response = await fetchMovies(searchTerm, page);
+  async ({
+    searchTerm,
+    page,
+    year,
+    type,
+  }: {
+    searchTerm: string;
+    page: number;
+    year?: string;
+    type?: string;
+  }) => {
+    const response = await fetchMovies(searchTerm, page, year, type);
     return response;
   }
 );
@@ -42,6 +61,10 @@ const moviesSlice = createSlice({
   reducers: {
     updateSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
+    },
+    updateFilter: (state, action) => {
+      state.year = action.payload.year;
+      state.type = action.payload.type;
     },
   },
   extraReducers: (builder) => {
@@ -76,5 +99,5 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { updateSearchTerm } = moviesSlice.actions;
+export const { updateSearchTerm, updateFilter } = moviesSlice.actions;
 export default moviesSlice.reducer;

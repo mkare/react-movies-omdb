@@ -1,6 +1,7 @@
 import { Container, Input, Button } from "@components/base";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Search from "@assets/Search";
 
 type MovieSearchBarProps = {
   onSubmit: (values: { search: string }) => void;
@@ -28,7 +29,7 @@ const MovieSearchBar: React.FC<MovieSearchBarProps> = ({ onSubmit }) => {
           name="search"
           onChange={formik.handleChange}
         />
-        <Button variant="secondary" size="small" type="submit">
+        <Button variant="secondary" size="small" type="submit" icon={<Search />}>
           Search
         </Button>
       </form>

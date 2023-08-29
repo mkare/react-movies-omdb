@@ -4,12 +4,16 @@ const apiUrl = "https://www.omdbapi.com/";
 
 export const fetchMovies = async (
   searchTerm: string,
-  page: number
+  page: number,
+  year?: string,
+  type?: string
 ): Promise<MovieSearchResult> => {
+  let query = `${apiUrl}?apikey=${apikey}&s=${searchTerm}&page=${page}`;
+  if (year) query += `&y=${year}`;
+  if (type) query += `&type=${type}`;
+
   try {
-    const response = await fetch(
-      `${apiUrl}?apikey=${apikey}&s=${searchTerm}&page=${page}`
-    );
+    const response = await fetch(query);
     const data = await response.json();
     return data;
   } catch (error) {

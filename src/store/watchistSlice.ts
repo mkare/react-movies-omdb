@@ -7,7 +7,6 @@ export interface WatchlistState {
   isExist: boolean;
 }
 
-// Başlangıç durumunu yüklemek yerine burada sadece boş bir nesne oluşturun
 const initialState: WatchlistState = {
   list: [],
   isExist: false,

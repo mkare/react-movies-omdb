@@ -1,10 +1,6 @@
 import { LoginForm } from "@components/block";
 const Auth: React.FC = () => {
-  return (
-    <div>
-      <LoginForm />
-    </div>
-  );
+  return <LoginForm />;
 };
 
 export default Auth;

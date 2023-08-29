@@ -24,9 +24,9 @@ const Input: React.FC<InputProps> = ({
     "focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none",
     "transition duration-150 ease-in-out",
     {
-      "px-3 py-2 text-sm": size === "sm",
-      "px-4 py-2 text-sm": size === "md",
-      "px-6 py-3 text-base": size === "lg",
+      "px-4 py-2 text-sm": size === "sm",
+      "px-5 py-3": size === "md",
+      "px-6 py-4 text-base": size === "lg",
       "border-red-500": error,
       "opacity-50 cursor-not-allowed": disabled,
     },
@@ -36,9 +36,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className={containerClassName}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700">
-          {label}
-        </label>
+        <label className="block text-sm font-medium text-gray-700">{label}</label>
       )}
       <input
         className={inputClass}

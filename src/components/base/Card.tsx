@@ -37,9 +37,13 @@ const Card: React.FC<CardProps> = ({
         <div className={classnames("relative overflow-hidden")}>
           <Link to={link}>
             <img
-              src={imageSrc}
+              src={
+                imageSrc !== "N/A"
+                  ? imageSrc
+                  : "https://via.placeholder.com/400x600?text=Not+Found"
+              }
               alt={imageAlt}
-              className={classnames("object-fill inset-0", {
+              className={classnames("object-cover w-full aspect-[4/6]", {
                 "rounded-t-lg": !imageOverlay,
               })}
             />
