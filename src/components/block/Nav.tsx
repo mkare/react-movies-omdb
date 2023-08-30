@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useAppDispatch, RootState } from "@store/index";
+import { resetToken } from "@store/authSlice";
 import classNames from "classnames";
 
 interface NavProps {
@@ -21,14 +24,22 @@ const NavItem: React.FC<{ href: string; text: string }> = ({ href, text }) => {
 };
 
 const Nav: React.FC<NavProps> = ({ links, children }) => {
+  const dispatch = useAppDispatch();
+  const token = useSelector((state: RootState) => state.auth.token);
   return (
     <nav className="flex flex-col items-center my-8">
-      {children && children}
       <ul className="flex justify-center gap-1 md:gap-2 mt-3">
         {links.map((link, index) => (
           <NavItem key={index} href={link.href} text={link.text} />
         ))}
+
+        {(token && (
+          <div onClick={() => dispatch(resetToken())}>
+            <NavItem href="/login" text="Logout" />
+          </div>
+        )) || <NavItem href="/login" text="Login" />}
       </ul>
+      {children && children}
     </nav>
   );
 };

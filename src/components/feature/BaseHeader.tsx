@@ -3,28 +3,26 @@ import { Title, Logo } from "@components/base";
 import { Nav } from "@components/block";
 import classNames from "classnames";
 
-const links = [
-  { href: "/", text: "Search Page" },
-  { href: "/watchlist", text: "Watchlist" },
-  { href: "/login", text: "Login" },
-];
-
 const BaseHeader: React.FC = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  function handleClick() {
+    setIsClicked(!isClicked);
+  }
+
+  const links = [
+    { href: "/", text: "Search Page" },
+    { href: "/list", text: "list" },
+  ];
 
   const titleClass = classNames(
     "-mt-8 px-2 font-mono tracking-tight z-10 border-2 relative transition",
     "bg-slate-500/75 border-slate-600",
     isClicked ? "bg-slate-800/90 border-slate-600" : "",
-    // tailwind shake animation if isClicked is true
     isClicked
       ? "animate-jump-in animate-delay-300 animate-reverse animate-once"
       : "animate-fade-up"
   );
-
-  function handleClick() {
-    setIsClicked(!isClicked);
-  }
 
   return (
     <header className="flex flex-col items-center my-3">

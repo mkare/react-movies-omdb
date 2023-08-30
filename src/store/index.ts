@@ -4,11 +4,13 @@ import type { ThunkAction, Action } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
 
 import moviesReducer from "./moviesSlice";
-import WatchlistReducer from "./watchistSlice";
+import watchlistReducer from "./watchistSlice";
+import authSliceReducer from "./authSlice";
 
 const rootReducer = combineReducers({
   movies: moviesReducer,
-  watchlist: WatchlistReducer,
+  watchlist: watchlistReducer,
+  auth: authSliceReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

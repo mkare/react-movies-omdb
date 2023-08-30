@@ -16,7 +16,7 @@ export default function AppRoutes() {
           path="*"
           element={<h1 className="text-center my-4 font-bold">Page Not Found</h1>}
         />
-        <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/list" element={<Watchlist />} />
       </Route>
       <Route path="/login" element={<AuthLayout />}>
         <Route index element={<Auth />} />

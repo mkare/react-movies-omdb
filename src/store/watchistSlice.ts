@@ -7,25 +7,12 @@ export interface WatchlistState {
   isExist: boolean;
 }
 
+const storedWatchlist = LocalStorageManager.getItem("watchlist");
+
 const initialState: WatchlistState = {
-  list: [],
+  list: storedWatchlist ? (storedWatchlist as WatchlistState).list : [],
   isExist: false,
 };
-
-const loadStoredWatchlist = async (): Promise<void> => {
-  try {
-    const storedWatchlist = await LocalStorageManager.getItem("watchlist");
-    if (storedWatchlist) {
-      initialState.list = (storedWatchlist as WatchlistState).list;
-      initialState.isExist = (storedWatchlist as WatchlistState).isExist;
-    }
-  } catch (error) {
-    console.error("Error loading watchlist from localStorage:", error);
-  }
-};
-
-// Stored watchlist'i yükleme işlemini başlat
-loadStoredWatchlist();
 
 const WatchlistSlice = createSlice({
   name: "watchlist",

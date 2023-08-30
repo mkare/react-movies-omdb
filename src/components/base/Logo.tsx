@@ -17,7 +17,7 @@ const Logo: React.FC<LogoProps> = ({
   className,
 }) => {
   const classes = classNames({
-    "scale-[1.3]": animated,
+    "scale-150": animated || loading,
     "scale-100": !animated,
     "h-full transform origin-center transition duration-500": true,
     [className!]: className,
