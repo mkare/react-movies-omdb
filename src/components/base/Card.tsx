@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({
   children,
 }) => {
   const classes = classnames(
-    "bg-white rounded-lg shadow-lg my-4 overflow-hidden relative",
+    "bg-white rounded-lg shadow-lg overflow-hidden relative",
     className
   );
 

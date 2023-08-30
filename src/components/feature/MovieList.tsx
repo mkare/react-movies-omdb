@@ -13,11 +13,11 @@ const MovieList: React.FC<MovieListProps> = ({ movies, searchTerm }) => {
   return (
     <Container>
       {searchTerm && (
-        <div className="mt-3 text-center italic text-primary-600">
+        <div className="my-5 text-center italic text-primary-600">
           Search Result for: {searchTerm}
         </div>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6">
         {movies && movies.map((movie) => <MovieCard key={movie.imdbID} movie={movie} />)}
       </div>
     </Container>
