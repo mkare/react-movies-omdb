@@ -48,7 +48,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       imageCaption={"Released: " + movie.Year}
       link={`/movie/${movie.imdbID}`}
     >
-      <div className="absolute bottom-3 left-3 flex items-center justify-between">
+      <div className="absolute bottom-3 left-0 pl-4 w-full flex items-center justify-between">
         <Badge variant={movie.Type === "movie" ? "info" : "primary"}>{movie.Type}</Badge>
         <div
           onClick={() => {
@@ -59,12 +59,12 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           {isInWatchlist(movie) ? (
             <>
               <Remove className={iconClass} />
-              <span className="text-xs">Remove</span>
+              <span className="text-xs hidden md:inline-block">Remove</span>
             </>
           ) : (
             <>
               <Save className={iconClass} />
-              <span className="text-xs">Add to list</span>
+              <span className="text-xs hidden md:inline-block">Add to list</span>
             </>
           )}
         </div>

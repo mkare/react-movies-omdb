@@ -1,5 +1,8 @@
-# React Starter Pack
+# React Movie App
 
+## Live
+
+https://jazzy-griffin-b6a780.netlify.app/
 This project was created with Vite and is built with React and TypeScript.
 
 ## Getting Started

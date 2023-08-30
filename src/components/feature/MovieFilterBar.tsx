@@ -5,6 +5,7 @@ import { FilterState } from "@store/moviesSlice";
 import { RootState } from "@store/index";
 import { useSelector } from "react-redux";
 import Check from "@assets/Check";
+import Cross from "@assets/Cross";
 
 type MovieFilterBarProps = {
   onSubmit: (values: FilterState) => void;
@@ -25,6 +26,9 @@ const MovieFilterBar: React.FC<MovieFilterBarProps> = ({ onSubmit }) => {
     onSubmit: (values) => {
       onSubmit(values);
     },
+    onReset: () => {
+      onSubmit({ year: "", type: "" });
+    },
   });
 
   function handleYearBlur() {
@@ -35,11 +39,24 @@ const MovieFilterBar: React.FC<MovieFilterBarProps> = ({ onSubmit }) => {
 
   return (
     <Container>
-      <form onSubmit={formik.handleSubmit} className="flex md:px-24 mt-4 items-center">
-        <div className="flex-grow mr-3 italic text-center">Filter by</div>
-        <div className="flex-none mr-2">
+      <div className="py-2 my-3 italic block md:hidden border-b-2 border-slate-200">
+        Filter by
+      </div>
+      <form onSubmit={formik.handleSubmit} className="flex mt-4 items-center">
+        <div className="flex flex-grow items-center">
+          <div className="mr-auto italic hidden md:block">Filter by</div>
+          {formik.values.year || formik.values.type ? (
+            <Button
+              variant="light"
+              size="small"
+              onClick={() => formik.resetForm()}
+              icon={<Cross />}
+            />
+          ) : null}
+        </div>
+        <div className="flex-none mx-2">
           <select
-            className="py-3 px-6 block w-full rounded-md shadow-sm appearance-none border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
+            className="py-3 px-4 md:px-6 block w-full rounded-md shadow-sm appearance-none border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none"
             name="type"
             onChange={formik.handleChange}
             value={formik.values.type}
@@ -55,20 +72,17 @@ const MovieFilterBar: React.FC<MovieFilterBarProps> = ({ onSubmit }) => {
             <div className="text-red-500 text-xs italic">{formik.errors.type}</div>
           ) : null}
         </div>
-        <div className="flex-none">
-          <Input
-            placeholder="Year..."
-            containerClassName="flex-grow mr-2"
-            name="year"
-            onChange={formik.handleChange}
-            onBlur={handleYearBlur}
-            value={formik.values.year}
-          />
-          {formik.touched.year && formik.errors.year ? (
-            <div className="text-red-500 text-xs italic">{formik.errors.year}</div>
-          ) : null}
-        </div>
-
+        <Input
+          placeholder="Year..."
+          containerClassName="flex-grow mr-2"
+          name="year"
+          onChange={formik.handleChange}
+          onBlur={handleYearBlur}
+          value={formik.values.year}
+        />
+        {formik.touched.year && formik.errors.year ? (
+          <div className="text-red-500 text-xs italic">{formik.errors.year}</div>
+        ) : null}
         <Button
           type="submit"
           variant="link"
@@ -76,7 +90,7 @@ const MovieFilterBar: React.FC<MovieFilterBarProps> = ({ onSubmit }) => {
           onClick={() => onSubmit(formik.values)}
           icon={<Check />}
         >
-          Apply
+          <span className="hidden md:block">Apply</span>
         </Button>
       </form>
     </Container>

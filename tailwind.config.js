@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 import generateTintsAndShades from "./src/utils/color";
 const primary = "#182c61";
@@ -45,5 +46,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };

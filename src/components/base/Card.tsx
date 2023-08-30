@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({
         <h2 className="mx-4 mb-4 mt-5 text-lg font-semibold leading-[0.95]">{title}</h2>
       )}
       {body && <div className="p-4">{body}</div>}
-      {children && <div className="px-4 py-6">{children}</div>}
+      {children && <div className="px-4 py-10 md:py-6">{children}</div>}
       {text && <p className="mb-2 p-4 text-gray-700">{text}</p>}
     </div>
   );

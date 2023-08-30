@@ -6,6 +6,7 @@ type LogoProps = {
   viewBox?: string;
   animated?: boolean;
   loading?: boolean;
+  className?: string;
 };
 
 const Logo: React.FC<LogoProps> = ({
@@ -13,11 +14,13 @@ const Logo: React.FC<LogoProps> = ({
   height = 80,
   animated = false,
   loading = false,
+  className,
 }) => {
   const classes = classNames({
-    "scale-[2]": animated,
+    "scale-[1.3]": animated,
     "scale-100": !animated,
     "h-full transform origin-center transition duration-500": true,
+    [className!]: className,
   });
   return (
     <div className={classes}>
