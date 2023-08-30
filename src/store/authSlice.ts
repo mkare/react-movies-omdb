@@ -6,7 +6,7 @@ export interface AuthState {
   isAuthenticated: boolean;
 }
 
-const storedToken = await LocalStorageManager.getItem("token");
+const storedToken = LocalStorageManager.getItem("token");
 
 const initialState: AuthState = {
   token: storedToken ? (storedToken as AuthState).token : undefined,
