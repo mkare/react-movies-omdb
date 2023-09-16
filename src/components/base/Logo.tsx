@@ -60,7 +60,7 @@ const Logo: React.FC<LogoProps> = ({
                 fill="white"
               ></path>
               <rect
-                x="-1.7"
+                x="-1.8"
                 fill="black"
                 width="4"
                 height="100"
@@ -75,7 +75,7 @@ const Logo: React.FC<LogoProps> = ({
                 />
               </rect>
               <rect
-                x="26.315"
+                x="26.215"
                 fill="black"
                 width="4"
                 height="100"
@@ -91,7 +91,7 @@ const Logo: React.FC<LogoProps> = ({
                 />
               </rect>
               <rect
-                x="76.33"
+                x="76.1"
                 fill="black"
                 width="4"
                 height="100"
@@ -107,7 +107,7 @@ const Logo: React.FC<LogoProps> = ({
                 />
               </rect>
               <rect
-                x="90.29"
+                x="90.1"
                 fill="black"
                 width="4"
                 height="100"
