@@ -21,6 +21,9 @@ const Watchlist: React.FC = () => {
     );
   }
 
+  // TODO: filter bar goes here
+  // filter by genre, year, rating, etc
+
   return <MovieList movies={watchlist} />;
 };
 
