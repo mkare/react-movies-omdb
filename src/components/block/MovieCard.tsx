@@ -3,8 +3,8 @@ import { Card, Badge } from "@components/base";
 import { useAppDispatch, RootState } from "@store/index";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
-import Save from "@assets/save.tsx";
-import Remove from "@assets/remove.tsx";
+import Save from "@assets/icons/Save";
+import Remove from "@assets/icons/Remove";
 
 type SelectedMovieFields = Pick<Movie, "Title" | "Poster" | "Year" | "Type" | "imdbID">;
 

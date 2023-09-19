@@ -4,8 +4,8 @@ import * as Yup from "yup";
 import { FilterState } from "@store/moviesSlice";
 import { RootState } from "@store/index";
 import { useSelector } from "react-redux";
-import Check from "@assets/Check";
-import Cross from "@assets/Cross";
+import Check from "@assets/icons/Check";
+import Cross from "@assets/icons/Cross";
 
 type MovieFilterBarProps = {
   onSubmit: (values: FilterState) => void;

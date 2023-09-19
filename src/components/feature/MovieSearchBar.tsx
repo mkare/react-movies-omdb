@@ -1,7 +1,7 @@
 import { Container, Input, Button } from "@components/base";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Search from "@assets/Search";
+import Search from "@assets/icons/Search";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
 
