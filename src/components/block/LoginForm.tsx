@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
     if (token) {
       setTimeout(() => {
         navigate("/");
-      }, 2050);
+      }, 2500);
     }
   }, [token, navigate]);
 
